@@ -1,8 +1,8 @@
 package com.company;
 
 public class Person {
-    String name;
-    String cpr;
+    protected String name;
+    protected String cpr;
 
     public Person(String name, String cpr) {
         this.name = name;
@@ -25,7 +25,11 @@ public class Person {
         this.cpr = cpr;
     }
 
-    public String toString(){
-        return "Intet endnu";
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", cpr='" + cpr + '\'' +
+                '}';
     }
 }

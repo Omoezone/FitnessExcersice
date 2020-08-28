@@ -1,11 +1,13 @@
 package com.company;
 
 public class Admin extends Employee{
-    int vacationDays;
+    protected int vacationDays;
 
     public Admin(String name, String cpr, int hours, double salary, int vacationDays) {
         super(name, cpr, hours, salary);
-        this.vacationDays = vacationDays;
+        this.salary = 23000;
+        this.vacationDays = 5;
+        this.hours = 37;
     }
 
     public int getVacationDays() {
@@ -16,4 +18,14 @@ public class Admin extends Employee{
         this.vacationDays = vacationDays;
     }
 
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "vacationDays=" + vacationDays +
+                ", hours=" + hours +
+                ", salary=" + salary +
+                ", name='" + name + '\'' +
+                ", cpr='" + cpr + '\'' +
+                '}';
+    }
 }
