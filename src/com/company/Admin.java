@@ -28,4 +28,8 @@ public class Admin extends Employee{
                 ", cpr='" + cpr + '\'' +
                 '}';
     }
+    @Override
+    public String addString() {
+        return name+" "+cpr+" "+hours+" "+salary+" "+vacationDays;
+    }
 }

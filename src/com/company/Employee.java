@@ -35,4 +35,7 @@ public class Employee extends Person {
                 ", cpr='" + cpr + '\'' +
                 '}';
     }
+    public String addString() {
+        return name+" "+cpr;
+    }
 }
