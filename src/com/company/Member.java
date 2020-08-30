@@ -31,12 +31,7 @@ public class Member extends Person {
 
     @Override
     public String toString() {
-        return "Member{" +
-                "isBasic=" + isBasic +
-                ", name='" + name + '\'' +
-                ", cpr='" + cpr + '\'' +
-                ", Member type='" + getMemberType() + '\'' +
-                ", Fee='" + montlyFee(isBasic) + '\'' +
-                '}';
+        return String.format("%-15s\t%-15s\t%-15s",isBasic,name,cpr);
+
     }
 }

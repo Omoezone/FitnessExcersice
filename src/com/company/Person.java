@@ -27,9 +27,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", cpr='" + cpr + '\'' +
-                '}';
+        return String.format("%-15s\t%-15s",name,cpr);
     }
 }

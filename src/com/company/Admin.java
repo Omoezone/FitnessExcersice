@@ -20,16 +20,6 @@ public class Admin extends Employee{
 
     @Override
     public String toString() {
-        return "Admin{" +
-                "vacationDays=" + vacationDays +
-                ", hours=" + hours +
-                ", salary=" + salary +
-                ", name='" + name + '\'' +
-                ", cpr='" + cpr + '\'' +
-                '}';
-    }
-    @Override
-    public String addString() {
-        return name+" "+cpr+" "+hours+" "+salary+" "+vacationDays;
+        return String.format("%-15s\t%-15s\t%-15d\t%-15.2f\t%-15d",name,cpr,hours,salary,vacationDays);
     }
 }

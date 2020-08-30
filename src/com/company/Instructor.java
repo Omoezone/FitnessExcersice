@@ -13,15 +13,6 @@ public class Instructor extends Employee{
 
     @Override
     public String toString() {
-        return "Instructor{" +
-                "hours=" + hours +
-                ", salary=" + salary +
-                ", name='" + name + '\'' +
-                ", cpr='" + cpr + '\'' +
-                '}';
-    }
-    @Override
-    public String addString() {
-        return name+" "+cpr+" "+hours+" "+salary;
+        return String.format("%-15s\t%-15s\t%-15d\t%-15.2f",name,cpr,hours,salary);
     }
 }

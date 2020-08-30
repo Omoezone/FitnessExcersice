@@ -28,14 +28,7 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "hours=" + hours +
-                ", salary=" + salary +
-                ", name='" + name + '\'' +
-                ", cpr='" + cpr + '\'' +
-                '}';
+        return String.format("%-15s\t%-15s\t%-15d\t%-15.2f",name,cpr,hours,salary);
     }
-    public String addString() {
-        return name+" "+cpr;
-    }
+
 }

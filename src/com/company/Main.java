@@ -1,32 +1,25 @@
 package com.company;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
-import java.sql.Array;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException{
-	// write your code here
-        int input;
-        do {
-            Scanner console = new Scanner(System.in);
-            List<Member> members = new ArrayList<>();
-            List<Employee> employees = new ArrayList<>();
-//        getFromTxt(employees, members);
+    public static void main(String[] args) {
+        Scanner console = new Scanner(System.in);
+        List<Person> person = new ArrayList<>();
+
+        int runAgain;
+        do { // Iterere så længe at man vælger at man gerne vil lave en ekstra person
             System.out.println("What do you want to create? \n1.Employee\n2.Member");
             int choice = console.nextInt();
             if (choice == 1) {
+
                 // Create new employee
                 System.out.println("What type of employee shall be created? \n1.Administrator\n2.Instructor");
-                System.out.println("Next, please fill out the required information");
                 int value = console.nextInt();
+                System.out.println("Next, please fill out the required information");
                 switch (value) {
                     case 1:
                         String[] temp = {"Name:", "CRP:"};
@@ -34,8 +27,8 @@ public class Main {
                         String a = console.next();
                         System.out.println(temp[1]);
                         String b = console.next();
-                        Employee person = new Admin(a, b, 0, 0, 0);
-                        employees.add(person);
+                        Employee employee = new Admin(a, b, 0, 0, 0);
+                        person.add(employee);
                         break;
                     case 2:
                         String[] temp1 = {"Name:", "CRP:", "Hours"};
@@ -45,8 +38,8 @@ public class Main {
                         String Ib = console.next();
                         System.out.println(temp1[2]);
                         int Ic = console.nextInt();
-                        Employee person1 = new Instructor(Ia, Ib, Ic, 0);
-                        employees.add(person1);
+                        Employee instructor = new Instructor(Ia, Ib, Ic, 0);
+                        person.add(instructor);
                         break;
                     default:
                 }
@@ -62,41 +55,46 @@ public class Main {
                 Boolean cM = console.nextBoolean();
 
                 Member member = new Member(aM, bM, cM);
-                members.add(member);
+                person.add(member);
             } else
                 System.exit(10);
 
-            System.out.println("Do you wish to create more people press:\n1. Yes \n2. No");
-            input = console.nextInt();
-        }while(input == 1);
-//        addToTxt(employees,members);
-    }
+            // PrintOut
+            printOut(person);
 
-//    public static void addToTxt(List<Employee> emp, List<Member> member) throws FileNotFoundException {
-//        File file = new File("src/com/company/employee.txt");
-//        PrintStream prints = new PrintStream(file);
-//
-//        for(int i = 0; i < emp.size();i++){
-//            prints.println(emp.get(i).addString());
-//        }
-//        file = new File("src/com/company/member.txt");
-//        prints = new PrintStream(file);
-//
-//        for(int i = 0; i < emp.size();i++){
-//            prints.println(emp.get(i).addString());
-//        }
-//        prints.close();
-//    }
-//    public static void getFromTxt(List<Employee> emp, List<Member> member){
-//        Scanner scan = new Scanner("src/com/company/employee.txt");
-//
-//        while(scan.hasNextLine()){
-//            while(scan.hasNext()){
-//
-//            }
-//        }
-//
-//        scan = new Scanner("src/com/company/member.txt");
-//
-//    }
+            System.out.println("Do you wish to create another person?\n 1. Yes\n 2. No");
+            runAgain = console.nextInt();
+        }while(runAgain == 1);
+    }
+    public static void printOut(List<Person> person){
+        System.out.println("FITNESS EMPLOYEES");
+        System.out.printf("%-15s\t%-15s\t%-15s\t%-15s\t%-15s\n","Name","Cpr","Hours","Salary","Vacation");
+        System.out.println("**************************************************************************");
+        for(int i = 0; i < person.size();i++){
+            if(person.get(i) instanceof Employee) {
+                System.out.println(person.get(i).toString());
+            }
+        }
+        System.out.println("\n===============================================\n\n");
+
+        System.out.println("FITNESS MEMBERS");
+        System.out.printf("%-15s\t%-15s\t%-15s\t%-15s\n","Name","Cpr","Member Type","Fee");
+        System.out.println("**************************************************************************");
+        for(int i = 0; i < person.size();i++){
+            if(person.get(i) instanceof Member) {
+                System.out.println(person.get(i).toString());
+            }
+        }
+        System.out.println("\n===============================================\n\n");
+
+        System.out.println("EMPLOYEE & MEMBERS Name and cpr");
+        System.out.printf("%-15s\t%-15s\n","Name","Cpr");
+        System.out.println("**************************************************************************");
+        for(int i = 0; i < person.size();i++){
+            System.out.printf("%-15s\t%-15s\n",person.get(i).getName(),person.get(i).getCpr());
+        }
+        System.out.println("\n===============================================\n\n");
+
+    }
+    
 }
