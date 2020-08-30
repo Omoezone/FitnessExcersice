@@ -22,16 +22,15 @@ public class Member extends Person {
         }else
             return "Full";
     }
-    public int montlyFee(boolean isBasic){
+    public int montlyFee(){
         if(this.isBasic){
             return 199;
         }else
             return 299;
     }
-
     @Override
     public String toString() {
-        return String.format("%-15s\t%-15s\t%-15s",isBasic,name,cpr);
+        return String.format("%-15s\t%-15s\t%-15s\t%-15s",name,cpr,getMemberType(),montlyFee());
 
     }
 }

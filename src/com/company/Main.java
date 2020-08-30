@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -51,13 +52,11 @@ public class Main {
                 String aM = console.next();
                 System.out.println(tempE[1]);
                 String bM = console.next();
-                System.out.println(tempE[2]);
-                Boolean cM = console.nextBoolean();
-
+                System.out.println(tempE[2] + "\n(Input either 'y' or 'n')");
+                Boolean cM = Validering.validBoolean(console);
                 Member member = new Member(aM, bM, cM);
                 person.add(member);
             } else
-                System.exit(10);
 
             // PrintOut
             printOut(person);
@@ -65,6 +64,7 @@ public class Main {
             System.out.println("Do you wish to create another person?\n 1. Yes\n 2. No");
             runAgain = console.nextInt();
         }while(runAgain == 1);
+        printOut(person);
     }
     public static void printOut(List<Person> person){
         System.out.println("FITNESS EMPLOYEES");
@@ -75,7 +75,7 @@ public class Main {
                 System.out.println(person.get(i).toString());
             }
         }
-        System.out.println("\n===============================================\n\n");
+        System.out.println("===============================================\n\n");
 
         System.out.println("FITNESS MEMBERS");
         System.out.printf("%-15s\t%-15s\t%-15s\t%-15s\n","Name","Cpr","Member Type","Fee");
@@ -85,7 +85,7 @@ public class Main {
                 System.out.println(person.get(i).toString());
             }
         }
-        System.out.println("\n===============================================\n\n");
+        System.out.println("===============================================\n\n");
 
         System.out.println("EMPLOYEE & MEMBERS Name and cpr");
         System.out.printf("%-15s\t%-15s\n","Name","Cpr");
@@ -93,7 +93,7 @@ public class Main {
         for(int i = 0; i < person.size();i++){
             System.out.printf("%-15s\t%-15s\n",person.get(i).getName(),person.get(i).getCpr());
         }
-        System.out.println("\n===============================================\n\n");
+        System.out.println("===============================================\n\n");
 
     }
     
